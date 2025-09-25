@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="so">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maamulka Lacagaha Ardayda</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Maamulka Lacagaha Ardayda</h1>
+    <div class="actions">
+      <a href="registration.html" class="ghost" style="text-decoration:none"><button class="ghost">Diiwaangelin</button></a>
+      <a href="payments.html" class="ghost" style="text-decoration:none"><button class="ghost">Bixinta</button></a>
+      <a href="reports.html" class="ghost" style="text-decoration:none"><button class="ghost">Warbixin</button></a>
+      <button id="exportBtn">Dhoofin (JSON)</button>
+      <label class="import-label">
+        <input type="file" id="importInput" accept="application/json" />
+        Soo dejin (JSON)
+      </label>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <h2>Diiwaangelinta Ardayga</h2>
+      <form id="studentForm" class="form-grid">
+        <div class="form-row">
+          <label for="studentName">Magaca Ardayga</label>
+          <input type="text" id="studentName" required placeholder="Tusaale: Xasan Cali" />
+        </div>
+        <div class="form-row">
+          <label for="studentClass">Fasalka</label>
+          <input type="text" id="studentClass" required placeholder="Tusaale: Fasalka 7aad" />
+        </div>
+        <div class="form-row" id="totalFeeRow">
+          <label for="totalFee">Lacagta Guud</label>
+          <input type="number" id="totalFee" required min="0" step="0.01" placeholder="Tusaale: 120" />
+        </div>
+        <div class="form-row">
+          <label for="freeFlag"><input type="checkbox" id="freeFlag" /> Bilaash (Lacagtu siday u dhantahay waa free)</label>
+        </div>
+        <div class="form-row">
+          <button type="submit" class="primary">Ku dar Arday</button>
+          <button type="reset" class="ghost">Nadiifi</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2>Liiska Ardayda</h2>
+      <div class="toolbar">
+        <input type="search" id="searchBox" placeholder="Raadi arday..." />
+      </div>
+      <div class="table-wrap">
+        <table id="studentsTable">
+          <thead>
+            <tr>
+              <th>Magac</th>
+              <th>Fasalka</th>
+              <th>Lacagta Guud</th>
+              <th>La bixiyey</th>
+              <th>Harsan</th>
+              <th>Tallaabo</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Bixinta Lacagta</h2>
+      <form id="paymentForm" class="form-grid">
+        <div class="form-row">
+          <label for="paymentStudent">Ardayga</label>
+          <select id="paymentStudent" required></select>
+        </div>
+        <div class="form-row">
+          <label for="paymentAmount">Qaddarka (Lacag)</label>
+          <input type="number" id="paymentAmount" min="0" step="0.01" required placeholder="Tusaale: 30" />
+        </div>
+        <div class="form-row">
+          <label for="paymentDate">Taariikh</label>
+          <input type="date" id="paymentDate" />
+        </div>
+        <div class="form-row">
+          <label for="paymentNote">Faahfaahin</label>
+          <input type="text" id="paymentNote" placeholder="Tusaale: Bixin bilow" />
+        </div>
+        <div class="form-row">
+          <button type="submit" class="primary">Ku dar Bixin</button>
+          <button type="reset" class="ghost">Nadiifi</button>
+        </div>
+      </form>
+
+      <div id="paymentsSection" class="table-wrap hidden">
+        <h3>Taariikhda Bixinta: <span id="paymentsTitle"></span></h3>
+        <table id="paymentsTable">
+          <thead>
+            <tr>
+              <th>Taariikh</th>
+              <th>Qaddar</th>
+              <th>Faahfaahin</th>
+              <th>Tallaabo</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Waxay ku kaydsan tahay biraawsarkaaga (LocalStorage). Looma baahna server.</small>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
+

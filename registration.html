@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="so">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Diiwaangelin Arday</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Diiwaangelinta Ardayga</h1>
+    <div class="actions">
+      <a href="index.html" class="ghost" style="text-decoration:none"><button class="ghost">Bogga Hore</button></a>
+      <a href="payments.html" class="ghost" style="text-decoration:none"><button class="ghost">Bixinta</button></a>
+      <a href="reports.html" class="ghost" style="text-decoration:none"><button class="ghost">Warbixin</button></a>
+      <button id="exportBtn">Dhoofin (JSON)</button>
+      <label class="import-label">
+        <input type="file" id="importInput" accept="application/json" />
+        Soo dejin (JSON)
+      </label>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <h2>Ku dar Arday (Mid-mid)</h2>
+      <form id="singleForm" class="form-grid">
+        <div class="form-row">
+          <label for="name">Magaca Ardayga</label>
+          <input id="name" type="text" required placeholder="Tusaale: Xasan Cali" />
+        </div>
+        <div class="form-row">
+          <label for="klass">Fasalka</label>
+          <input id="klass" type="text" required placeholder="Tusaale: Fasalka 7aad" />
+        </div>
+        <div class="form-row">
+          <label for="fee">Lacagta Guud</label>
+          <input id="fee" type="number" min="0" step="0.01" required placeholder="Tusaale: 120" />
+        </div>
+        <div class="form-row">
+          <button class="primary" type="submit">Ku dar Arday</button>
+          <button class="ghost" type="reset">Nadiifi</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2>Soo Gelin Kooban (Bulk) — Excel</h2>
+      <p class="muted">Soo geli fayl Excel oo leh safaf leh: <strong>Name</strong>, <strong>Class</strong>, <strong>TotalFee</strong> (ama Somali: <strong>Magac</strong>, <strong>Fasalka</strong>, <strong>LacagtaGuud</strong>).</p>
+      <div class="form-grid">
+        <div class="form-row">
+          <label for="excelInput">Dooro fayl Excel</label>
+          <input id="excelInput" type="file" accept=".xlsx,.xls" />
+        </div>
+        <div class="form-row">
+          <button id="uploadExcelBtn" class="primary" type="button">Soo geli</button>
+          <button id="downloadTemplateBtn" class="ghost" type="button">Soo dejiso Template</button>
+        </div>
+      </div>
+      <div id="preview" class="table-wrap hidden" style="margin-top:12px;"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Liiska Ardayga (Degdeg)</h2>
+      <div class="toolbar">
+        <input type="search" id="searchBoxReg" placeholder="Raadi arday..." />
+      </div>
+      <div class="table-wrap">
+        <table id="studentsTable">
+          <thead>
+            <tr>
+              <th>Magac</th>
+              <th>Fasalka</th>
+              <th>Lacagta Guud</th>
+              <th>La bixiyey</th>
+              <th>Harsan</th>
+              <th>Tallaabo</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Kayd: LocalStorage | Excel: SheetJS</small>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js"></script>
+  <script src="assets/storage.js"></script>
+  <script src="assets/registration.js"></script>
+</body>
+</html>

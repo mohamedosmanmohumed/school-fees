@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="so">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Warbixin Lacag</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Warbixin Lacag</h1>
+    <div class="actions">
+      <a href="index.html" class="ghost" style="text-decoration:none"><button class="ghost">Bogga Hore</button></a>
+      <a href="registration.html" class="ghost" style="text-decoration:none"><button class="ghost">Diiwaangelin</button></a>
+      <a href="payments.html" class="ghost" style="text-decoration:none"><button class="ghost">Bixinta</button></a>
+      <button id="exportExcel" class="primary">La dag (Excel)</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <h2>Ka dooro</h2>
+      <div class="form-grid">
+        <div class="form-row">
+          <label for="classFilter">Fasalka</label>
+          <select id="classFilter"></select>
+        </div>
+        <div class="form-row">
+          <label for="statusFilter">Xaaladda Lacagta</label>
+          <select id="statusFilter">
+            <option value="">Dhammaan</option>
+            <option value="paid">La bixiyay dhammaan</option>
+            <option value="partial">Qayb ahaan la bixiyay</option>
+            <option value="unpaid">Aan la bixin</option>
+            <option value="free">Bilaash</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Natiijooyinka</h2>
+      <div class="table-wrap">
+        <table id="reportTable">
+          <thead>
+            <tr>
+              <th>Magac</th>
+              <th>Fasalka</th>
+              <th>Lacagta Guud</th>
+              <th>La bixiyey</th>
+              <th>Harsan</th>
+              <th>Xaalad</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Kayd: LocalStorage | Excel: SheetJS</small>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js"></script>
+  <script src="assets/storage.js"></script>
+  <script src="assets/reports.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="so">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bixinta Lacagta</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Bixinta Lacagta</h1>
+    <div class="actions">
+      <a href="index.html" class="ghost" style="text-decoration:none"><button class="ghost">Bogga Hore</button></a>
+      <a href="registration.html" class="ghost" style="text-decoration:none"><button class="ghost">Diiwaangelin</button></a>
+      <a href="reports.html" class="ghost" style="text-decoration:none"><button class="ghost">Warbixin</button></a>
+      <button id="exportBtn">Dhoofin (JSON)</button>
+      <label class="import-label">
+        <input type="file" id="importInput" accept="application/json" />
+        Soo dejin (JSON)
+      </label>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <h2>Shaandhee Fasalka</h2>
+      <div class="form-grid">
+        <div class="form-row">
+          <label for="classFilter">Fasalka</label>
+          <select id="classFilter"></select>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Ku dar Bixin</h2>
+      <form id="paymentForm" class="form-grid">
+        <div class="form-row">
+          <label for="studentSelect">Ardayga</label>
+          <select id="studentSelect" required></select>
+        </div>
+        <div class="form-row">
+          <label for="amount">Qaddarka</label>
+          <input id="amount" type="number" min="0" step="0.01" required placeholder="Tusaale: 30" />
+        </div>
+        <div class="form-row">
+          <label for="pdate">Taariikh</label>
+          <input id="pdate" type="date" />
+        </div>
+        <div class="form-row">
+          <label for="note">Faahfaahin</label>
+          <input id="note" type="text" placeholder="Tusaale: Bixin bilow" />
+        </div>
+        <div class="form-row">
+          <button type="submit" class="primary">Ku dar Bixin</button>
+          <button type="reset" class="ghost">Nadiifi</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2>Liiska Ardayga ee Fasalka</h2>
+      <div class="toolbar">
+        <input type="search" id="searchBoxPay" placeholder="Raadi arday..." />
+      </div>
+      <div class="table-wrap">
+        <table id="studentsTable">
+          <thead>
+            <tr>
+              <th>Magac</th>
+              <th>Fasalka</th>
+              <th>Lacagta Guud</th>
+              <th>La bixiyey</th>
+              <th>Harsan</th>
+              <th>Tallaabo</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Taariikhda Bixinta: <span id="paymentsTitle"></span></h2>
+      <div class="table-wrap">
+        <table id="paymentsTable">
+          <thead>
+            <tr>
+              <th>Taariikh</th>
+              <th>Qaddar</th>
+              <th>Faahfaahin</th>
+              <th>Tallaabo</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Kayd: LocalStorage</small>
+  </footer>
+
+  <script src="assets/storage.js"></script>
+  <script src="assets/payments.js"></script>
+</body>
+</html>
